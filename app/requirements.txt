@@ -1,0 +1,8 @@
+# 번역 모델은 CPU로 돌린다. GPU는 ComfyUI가 쓴다.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+fastapi>=0.115
+uvicorn>=0.30
+transformers>=4.44
+sentencepiece
+sacremoses
