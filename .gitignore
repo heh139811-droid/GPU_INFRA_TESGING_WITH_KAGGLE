@@ -1,0 +1,29 @@
+# 데이터 / 산출물 - Kaggle Dataset(private)으로 공유한다
+data/raw/
+data/proc/
+outputs/
+*.safetensors
+*.ckpt
+*.pt
+*.png
+*.jpg
+*.jpeg
+!docs/**/*.png
+
+# 시크릿
+.env
+*.key
+kaggle.json
+
+# comfy-cli가 실행 폴더에 만드는 설치 부산물
+override.txt
+requirements.compiled
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+*.egg-info/
