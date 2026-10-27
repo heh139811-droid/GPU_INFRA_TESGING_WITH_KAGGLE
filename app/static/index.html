@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>광고 이미지 스튜디오</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">광고 이미지 스튜디오</div>
+    <div class="status" id="status"><span class="dot"></span><span id="status-text">연결 확인 중</span></div>
+  </header>
+
+  <main class="layout">
+    <form class="panel" id="form">
+      <section>
+        <label class="section-title" for="prompt">어떤 광고 이미지를 만들까요?</label>
+        <textarea id="prompt" rows="5" maxlength="1000" placeholder="예: 나무 테이블 위 흰 젖병, 따뜻한 아침 햇살, 신생아용 느낌" required></textarea>
+        <div class="examples" id="examples"></div>
+      </section>
+
+      <section>
+        <div class="section-title">모델</div>
+        <div class="style-grid" id="models"></div>
+      </section>
+
+      <section>
+        <div class="section-title">스타일</div>
+        <div class="style-grid" id="styles"></div>
+      </section>
+
+      <section>
+        <div class="section-title">화면비</div>
+        <div class="chips" id="aspects"></div>
+      </section>
+
+      <section>
+        <div class="section-title">장수</div>
+        <div class="segmented" id="counts"></div>
+      </section>
+
+      <details class="advanced">
+        <summary>고급 설정</summary>
+        <label for="prompt-en">영문 프롬프트 직접 입력 <span class="hint">입력하면 번역을 건너뜁니다</span></label>
+        <textarea id="prompt-en" rows="3" placeholder="white baby bottle on a wooden table, morning sunlight"></textarea>
+        <label for="seed">시드 <span class="hint">비우면 무작위</span></label>
+        <input id="seed" type="number" min="0" placeholder="무작위">
+      </details>
+
+      <button type="submit" class="generate" id="generate">이미지 생성</button>
+      <p class="error" id="error" hidden></p>
+    </form>
+
+    <section class="results">
+      <div class="empty" id="empty">
+        <p>왼쪽에 만들고 싶은 광고 이미지를 한글로 적고 <b>이미지 생성</b>을 누르세요.</p>
+        <p class="hint">스타일과 화면비를 고르면 조명·구도와 지면 크기가 자동으로 맞춰집니다.</p>
+      </div>
+      <div id="jobs"></div>
+    </section>
+  </main>
+
+  <dialog id="viewer">
+    <img id="viewer-img" alt="">
+    <div class="viewer-actions">
+      <a id="viewer-download" class="btn" download>다운로드</a>
+      <button class="btn ghost" id="viewer-close" type="button">닫기</button>
+    </div>
+  </dialog>
+
+  <template id="job-template">
+    <article class="job">
+      <header class="job-head">
+        <div>
+          <p class="job-prompt"></p>
+          <p class="job-en"></p>
+        </div>
+        <span class="job-progress"></span>
+      </header>
+      <div class="grid"></div>
+    </article>
+  </template>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
